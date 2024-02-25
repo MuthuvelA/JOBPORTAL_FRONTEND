@@ -14,8 +14,14 @@ class _SignInPageState extends State<SignInPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("JOB PORTAL",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
-        centerTitle: true,
+        title: Text(
+          "JOBPORTAL",
+          style: TextStyle(
+            fontSize: 25,
+            fontWeight: FontWeight.w900,
+            fontFamily: 'Poppins-bold',
+          ),
+        ),
       ),
       backgroundColor: Colors.pink.shade100,
       body: formFieldForSignIn(),
@@ -30,7 +36,7 @@ class _SignInPageState extends State<SignInPage> {
           children: [
             const SizedBox(height: 70,),
             const Center(
-              child: Text("Create New Account",style: TextStyle(fontSize: 50,fontWeight: FontWeight.bold),),
+              child: Text("Create New Account",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
             ),
             const SizedBox(height: 30,),
             Container(
@@ -42,6 +48,7 @@ class _SignInPageState extends State<SignInPage> {
               child: TextFormField(
                 decoration: InputDecoration(
                     hintText: "Email Full Name",
+                    hintStyle: TextStyle(fontFamily: "Poppins", fontWeight: FontWeight.w700),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: const BorderSide(
@@ -68,6 +75,7 @@ class _SignInPageState extends State<SignInPage> {
               child: TextFormField(
                 decoration: InputDecoration(
                     hintText: "Email Address",
+                    hintStyle: TextStyle(fontFamily: "Poppins", fontWeight: FontWeight.w700),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
@@ -90,6 +98,7 @@ class _SignInPageState extends State<SignInPage> {
                 obscureText: true,
                 decoration: InputDecoration(
                     hintText: "Enter Password",
+                    hintStyle: TextStyle(fontFamily: "Poppins", fontWeight: FontWeight.w700),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
@@ -112,7 +121,7 @@ class _SignInPageState extends State<SignInPage> {
                 onPressed: (){
                     _submitForm();
                 },
-                child: Text("Sign In",style: TextStyle(color: Colors.white,fontSize: 16),),
+                child: Text("Sign In",style: TextStyle(color: Colors.white,fontSize: 16,fontFamily: 'Popppins-bold'),),
               style: ButtonStyle(
                 //foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
                 backgroundColor: MaterialStateProperty.all<Color>(Colors.purple),
