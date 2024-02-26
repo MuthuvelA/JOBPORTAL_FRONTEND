@@ -24,7 +24,6 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
       ),
-      backgroundColor: Colors.pink.shade100,
       body: formFieldForLogin(context),
     );
   }
@@ -37,13 +36,27 @@ Widget formFieldForLogin(BuildContext context) {
       padding: const EdgeInsets.only(left: 50, right: 50),
       child: Column(
         children: [
-          const SizedBox(height: 150),
-          const Center(
-              child: Text(
-                "Login",
-                style: TextStyle(fontFamily: "Poppins", fontSize: 50, fontWeight: FontWeight.bold),
-              )),
-          const SizedBox(height: 30,),
+          const SizedBox(height: 30),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                    "Welcome Back!",
+                    style: TextStyle(fontFamily: "Poppins-bold", fontSize: 28, fontWeight: FontWeight.w800),
+                  ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                " Fill the login credential\n to continue!",
+                style: TextStyle(fontFamily: "Poppins",fontSize: 15,fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          const SizedBox(height: 60,),
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -53,12 +66,6 @@ Widget formFieldForLogin(BuildContext context) {
               decoration: InputDecoration(
                   hintText: "Enter username or mail",
                   hintStyle: TextStyle(fontFamily: "Poppins", fontWeight: FontWeight.w700),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(
-                        color: Colors.blue,
-                        width: 10,
-                      )),
                   suffixIcon: const Icon(Icons.person)),
             ),
           ),
@@ -73,12 +80,6 @@ Widget formFieldForLogin(BuildContext context) {
               decoration: InputDecoration(
                   hintText: "Password",
                   hintStyle: TextStyle(fontFamily: "Poppins", fontWeight: FontWeight.w700),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(
-                        color: Colors.blue,
-                        width: 10,
-                      )),
                   suffixIcon: const Icon(Icons.fingerprint)),
             ),
           ),
@@ -91,8 +92,8 @@ Widget formFieldForLogin(BuildContext context) {
                 child: const Text(
                   'Forgot Password?',
                   style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontFamily: 'Poppins-Bold',
+                    fontWeight: FontWeight.w100,
+                    fontFamily: 'Poppins-bold',
                   ),
                 ),
               ),
@@ -112,8 +113,8 @@ Widget formFieldForLogin(BuildContext context) {
                 child: const Text(
                   'Signup',
                   style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontFamily: "Poppins-bold",
+                      fontWeight: FontWeight.w100,
+                      fontFamily: 'Poppins-bold'
                   ),
                 ),
               ),
@@ -122,11 +123,22 @@ Widget formFieldForLogin(BuildContext context) {
           const SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {},
-            child: Text("Login", style: TextStyle(color: Colors.white, fontSize: 16.0)),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.purple,
+              backgroundColor: Colors.lightBlue,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16.0),
+                borderRadius: BorderRadius.circular(14.0),
+              ),
+            ),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 10), // Adjust horizontal padding here
+              child: const Text(
+                "LOG IN",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16.0,
+                  fontFamily: "Poppins",
+                  fontWeight: FontWeight.w800,
+                ),
               ),
             ),
           ),

@@ -23,7 +23,7 @@ class _SignInPageState extends State<SignInPage> {
           ),
         ),
       ),
-      backgroundColor: Colors.pink.shade100,
+      //backgroundColor: Colors.pink.shade100,
       body: formFieldForSignIn(),
     );
   }
@@ -35,8 +35,10 @@ class _SignInPageState extends State<SignInPage> {
         child: Column(
           children: [
             const SizedBox(height: 70,),
-            const Center(
-              child: Text("Create New Account",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
+            Row(
+              children: [
+                Text("Register Account",style: TextStyle(fontSize: 30,fontWeight: FontWeight.w800,fontFamily: "Poppins-bold"),),
+              ]
             ),
             const SizedBox(height: 30,),
             Container(
@@ -47,7 +49,7 @@ class _SignInPageState extends State<SignInPage> {
               //color: Colors.white,
               child: TextFormField(
                 decoration: InputDecoration(
-                    hintText: "Email Full Name",
+                    hintText: "Username",
                     hintStyle: TextStyle(fontFamily: "Poppins", fontWeight: FontWeight.w700),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -121,11 +123,22 @@ class _SignInPageState extends State<SignInPage> {
                 onPressed: (){
                     _submitForm();
                 },
-                child: Text("Sign In",style: TextStyle(color: Colors.white,fontSize: 16,fontFamily: 'Popppins-bold'),),
-              style: ButtonStyle(
-                //foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-                backgroundColor: MaterialStateProperty.all<Color>(Colors.purple),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.lightBlue,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(14.0),
+                ),
               ),
+                child:Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 10),
+                  child: const Text(
+                  "SIGN UP",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontFamily: 'Popppins-bold'),
+                  ),
+                ),
             )
           ],
         ),
@@ -150,8 +163,8 @@ class _SignInPageState extends State<SignInPage> {
               context: context,
               builder: (context){
                 return AlertDialog(
-                  title: Text("INFORMATION",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                  content: Text(
+                  title: const Text("INFORMATION",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                  content: const Text(
                     "Successfully entered , now you can go to login page using this button :)",
                     style: TextStyle(fontSize: 16,fontWeight: FontWeight.normal),
                   ),
@@ -161,11 +174,11 @@ class _SignInPageState extends State<SignInPage> {
                       onPressed: (){
                         Navigator.pop(context);
                       },
-                      child: Text("OK",style: TextStyle(color: Colors.white,fontSize: 16),),
                       style: ButtonStyle(
                         foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
                         backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
                       ),
+                      child: Text("OK",style: TextStyle(color: Colors.white,fontSize: 16),),
                     )
                   ],
                 );
