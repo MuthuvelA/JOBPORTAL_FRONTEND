@@ -1,28 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+class ProfileEmployeePage extends StatefulWidget {
+  const ProfileEmployeePage({super.key});
 
   @override
-  State<ProfilePage> createState() => _ProfilePageState();
+  State<ProfileEmployeePage> createState() => _ProfileEmployeePageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
-
-  String ? dropDownValue;
-  final List<String> _skillSet = [
-    'C',
-    'C++',
-    'Python',
-    'Java',
-    'JavaScript',
-    'Flutter',
-    'Dart',
-    'Swift',
-    'Kotlin',
-    'Ruby',
-    'PHP',
-  ];
+class _ProfileEmployeePageState extends State<ProfileEmployeePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +31,20 @@ class _ProfilePageState extends State<ProfilePage> {
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              "Name",
+              "Company Name",
+              style: TextStyle(fontSize: 17, fontFamily: "Poppins-bold"),
+            ),
+          ),
+          Container(
+            width:400,
+            child: TextField(
+            ),
+          ),
+          SizedBox(height: 20,),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              "Employee Name",
               style: TextStyle(fontSize: 17, fontFamily: "Poppins-bold"),
             ),
           ),
@@ -82,39 +80,24 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           ),
           SizedBox(height: 20,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Pincode",
-                style: TextStyle(fontSize: 17, fontFamily: "Poppins-bold"),
-              ),
-              Text(
-                "State",
-                style: TextStyle(fontSize: 17, fontFamily: "Poppins-bold"),
-              ),
-            ],
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              "Company Adress",
+              style: TextStyle(fontSize: 17, fontFamily: "Poppins-bold"),
+            ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                width: 100,
-                child: TextField(
-                ),
-              ),
-              Container(
-                width: 100,
-                child: TextField(
-                ),
-              ),
-            ],
+          Container(
+            width:400,
+            child: TextField(
+              maxLines: 3,
+            ),
           ),
           SizedBox(height: 20,),
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              "Currently pursuing",
+              "Designation",
               style: TextStyle(fontSize: 17, fontFamily: "Poppins-bold"),
             ),
           ),
@@ -123,32 +106,6 @@ class _ProfilePageState extends State<ProfilePage> {
             child: TextField(
             ),
           ),
-          SizedBox(height: 20,),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              "Add your skill set",
-              style: TextStyle(fontSize: 17, fontFamily: "Poppins-bold"),
-            ),
-          ),
-          DropdownButton<String>(
-            icon: Icon(Icons.arrow_drop_down_rounded),
-            iconSize: 20,
-            isExpanded: true,
-            value: dropDownValue,
-            elevation: 16,
-            onChanged: (String? newValue) {
-              setState(() {
-                dropDownValue = newValue;
-              });
-            },
-            items: _skillSet.map<DropdownMenuItem<String>>((String value) {
-               return DropdownMenuItem<String>(
-               value: value,
-                  child: Text(value),
-                  );
-                }).toList(),
-              ),
           SizedBox(height: 30,),
           ElevatedButton(
             onPressed: () {},
