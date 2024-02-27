@@ -18,7 +18,11 @@ class _ApplicationTrackerUserState extends State<ApplicationTrackerUser> {
       ),
       body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
-          child: bodyPartForApplicationTracker()),
+          child: Padding(
+            padding: EdgeInsets.only(top: 10,bottom: 10,right: 10,left: 10),
+            child: bodyPartForApplicationTracker(),
+          )
+      ),
     );
   }
   Widget bodyPartForApplicationTracker(){
