@@ -17,8 +17,12 @@ class _JobListPageForEmployeeState extends State<JobListPageForEmployee> {
         backgroundColor: Colors.pink,
       ),
       body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-          child: bodyPartForJobList()),
+      scrollDirection: Axis.vertical,
+      child: Padding(
+      padding: const EdgeInsets.only(top: 10,bottom: 10,right: 10,left: 10),
+      child: bodyPartForJobList()
+      ),
+      ),
     );
   }
 
