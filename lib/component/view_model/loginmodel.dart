@@ -2,9 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:jobportal/component/view/loginUser.dart';
 
-Future<bool> validateLogin(TextEditingController username, TextEditingController password) async {
+void validateLogin(TextEditingController username, TextEditingController password) async {
   var reqBody = {
     "username": username.text,
     "password": password.text,
@@ -20,9 +19,7 @@ Future<bool> validateLogin(TextEditingController username, TextEditingController
 
   if (decRes['status']) {
     print(decRes['message']);
-    return true;
   } else {
     print(decRes['message']);
-    return false;
   }
 }
