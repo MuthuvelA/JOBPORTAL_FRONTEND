@@ -8,7 +8,7 @@ void main() {
     initialRoute: "/login",
     routes: {
       "/login" : (context) => const LoginPage(),
-      "/signIn" : (context) => const SignInPage()
+      "/signIn" : (context) => const SignInPage(),
     },
   );
   runApp(MyApp);
