@@ -45,7 +45,7 @@ class _SearchPageState extends State<SearchPage> {
               child: TextFormField(
                 decoration: InputDecoration(
                   hintText: "Search here...",
-                  hintStyle: const TextStyle(fontSize: 16,fontFamily: "Poppins"),
+                  hintStyle: const TextStyle(fontSize: 16,fontFamily: "Poppins-bold"),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: const BorderSide(color: Colors.white)
@@ -115,7 +115,7 @@ class _SearchPageState extends State<SearchPage> {
                       "torando canada",
                       style: TextStyle(
                         fontSize: 17,
-                        fontFamily: "Poppins",
+                        fontFamily: "Poppins-bold",
                         color: Colors.grey.shade500,
                       ),
                     ),
