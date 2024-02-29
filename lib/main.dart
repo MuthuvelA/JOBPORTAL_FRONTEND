@@ -13,7 +13,7 @@ import 'package:jobportal/component/view/sign-up_view.dart';
 
 void main() {
   Widget myApp = MaterialApp(
-    initialRoute: "/applicationTracker",
+    initialRoute: "/search",
     routes: {
       "/login": (context) => const LoginPage(),
       "/signIn": (context) => const SignInPage(),
