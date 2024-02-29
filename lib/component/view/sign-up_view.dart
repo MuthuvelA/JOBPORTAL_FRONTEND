@@ -1,4 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
+import '../view_model/signupmodel.dart';
+import 'login_view.dart';
 import 'package:jobportal/component/view/profile_view.dart';
 
 class SignInPage extends StatefulWidget {
@@ -9,13 +15,15 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
-
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+  TextEditingController username= TextEditingController();
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "JOBPORTAL",
           style: TextStyle(
             fontSize: 25,
@@ -49,6 +57,7 @@ class _SignInPageState extends State<SignInPage> {
               ),
               //color: Colors.white,
               child: TextFormField(
+                controller: username,
                 decoration: InputDecoration(
                     hintText: "Username",
                     hintStyle: TextStyle(fontFamily: "Poppins", fontWeight: FontWeight.w700),
@@ -76,6 +85,7 @@ class _SignInPageState extends State<SignInPage> {
               ),
               //color: Colors.white,
               child: TextFormField(
+                controller: email,
                 decoration: InputDecoration(
                     hintText: "Email Address",
                     hintStyle: TextStyle(fontFamily: "Poppins", fontWeight: FontWeight.w700),
@@ -98,6 +108,7 @@ class _SignInPageState extends State<SignInPage> {
               ),
               //color: Colors.white,
               child: TextFormField(
+                controller: password,
                 obscureText: true,
                 decoration: InputDecoration(
                     hintText: "Enter Password",
@@ -122,7 +133,8 @@ class _SignInPageState extends State<SignInPage> {
             const SizedBox(height: 40,),
             ElevatedButton(
                 onPressed: (){
-                    _submitForm();
+                  //  _submitForm();
+                  validateUser(username,email,password);
                 },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.lightBlue,
@@ -173,7 +185,10 @@ class _SignInPageState extends State<SignInPage> {
                   actions: [
                     ElevatedButton(
                       onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfilePage()));
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const LoginPage()),
+                        );
                       },
                       style: ButtonStyle(
                         foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
