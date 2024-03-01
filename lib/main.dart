@@ -13,7 +13,7 @@ import 'component/view/entry.dart';
 
 void main() {
   Widget myApp = MaterialApp(
-    initialRoute: "/entry",
+    initialRoute: "/profile",
     routes: {
       "/login": (context) => const LoginPage(),
       "/signIn": (context) => const SignInPage(),

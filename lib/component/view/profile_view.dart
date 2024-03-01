@@ -107,25 +107,6 @@ class _ProfilePageState extends State<ProfilePage> {
                   controller: mobileController,
                 ),
               ),
-              SizedBox(height: 20),
-              Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10)
-                ),
-                child: TextField(
-                  decoration: InputDecoration(
-                      hintText: "Enter PINCODE",
-                    hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                            color: Colors.blue, width: 2
-                        )
-                    ),
-                  ),
-                  controller: mobileController,
-                ),
-              ),
               SizedBox(height: 20,),
               Container(
                 decoration: BoxDecoration(
@@ -133,7 +114,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 child: TextField(
                   decoration: InputDecoration(
-                      hintText: "Enter STATE",
+                      hintText: "Enter Address",
                     hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -142,6 +123,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         )
                     ),
                   ),
+                  maxLines: 3,
                   controller: mobileController,
                 ),
               ),
@@ -165,30 +147,24 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
               SizedBox(height: 20),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Add your skill set",
-                  style: TextStyle(fontSize: 17, fontFamily: "Poppins-bold"),
+              Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10)
                 ),
-              ),
-              DropdownButton<String>(
-                icon: Icon(Icons.arrow_drop_down_rounded),
-                iconSize: 20,
-                isExpanded: true,
-                value: dropDownValue,
-                elevation: 16,
-                onChanged: (String? newValue) {
-                  setState(() {
-                    dropDownValue = newValue;
-                  });
-                },
-                items: _skillSet.map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: "Add your skills",
+                    hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(
+                            color: Colors.blue, width: 2
+                        )
+                    ),
+                  ),
+                  maxLines: 3,
+                  //controller: mobileController,
+                ),
               ),
               SizedBox(height: 30),
               ElevatedButton(
