@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jobportal/component/view/search_view.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -151,7 +152,9 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
           SizedBox(height: 30,),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchPage()));
+            },
             child: Text("Save", style: TextStyle(color: Colors.white, fontSize: 16.0)),
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.pink.shade500,

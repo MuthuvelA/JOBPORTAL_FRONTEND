@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jobportal/component/view/profile_view.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -159,7 +160,7 @@ class _SignInPageState extends State<SignInPage> {
                   actions: [
                     ElevatedButton(
                       onPressed: (){
-                        Navigator.pop(context);
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfilePage()));
                       },
                       child: Text("OK",style: TextStyle(color: Colors.white,fontSize: 16),),
                       style: ButtonStyle(
