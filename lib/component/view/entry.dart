@@ -18,7 +18,7 @@ class _EntryPageState extends State<EntryPage> {
         backgroundColor: Colors.blue,
         centerTitle: true,
       ),
-      backgroundColor: Colors.grey,
+     // backgroundColor: Colors.grey,
       body: mainButtonForEntry(),
     );
   }
@@ -38,11 +38,15 @@ class _EntryPageState extends State<EntryPage> {
                 MaterialPageRoute(builder: (context) => const LoginPage()),
               );
             },
-            child: Image.network(
-                'https://th.bing.com/th/id/OIP.e1KNYwnuhNwNj7_-98yTRwHaF7?rs=1&pid=ImgDetMain',
-              width: 100,
-              height: 100,
-              fit: BoxFit.cover,
+            child: Container(
+                height: 150,
+                width: 300,
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage('assets/img/jobSeeker.jpg'),
+                        fit: BoxFit.cover
+                    )
+                ),
             ),
           ),
         ),
@@ -58,11 +62,15 @@ class _EntryPageState extends State<EntryPage> {
                 MaterialPageRoute(builder: (context) => const LoginPage()),
               );
             },
-            child: Image.network(
-              'https://th.bing.com/th/id/OIP.GBjqNOdFKYK0He2NZcozeAHaFG?rs=1&pid=ImgDetMain',
-              width: 100,
-              height: 100,
-              fit: BoxFit.cover,
+            child: Container(
+              height: 150,
+              width: 300,
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/img/employee.jpg'),
+                      fit: BoxFit.cover
+                  )
+              ),
             ),
           ),
         ),
