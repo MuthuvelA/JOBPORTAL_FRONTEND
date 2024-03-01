@@ -1,10 +1,5 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-
-import '../view_model/signupmodel.dart';
-import 'login_view.dart';
+import 'package:jobportal/component/view/profile_view.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -14,15 +9,13 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
-  TextEditingController email = TextEditingController();
-  TextEditingController password = TextEditingController();
-  TextEditingController username= TextEditingController();
+
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           "JOBPORTAL",
           style: TextStyle(
             fontSize: 25,
@@ -31,7 +24,7 @@ class _SignInPageState extends State<SignInPage> {
           ),
         ),
       ),
-      //backgroundColor: Colors.pink.shade100,
+      backgroundColor: Colors.pink.shade100,
       body: formFieldForSignIn(),
     );
   }
@@ -43,10 +36,8 @@ class _SignInPageState extends State<SignInPage> {
         child: Column(
           children: [
             const SizedBox(height: 70,),
-            Row(
-              children: [
-                Text("Register Account",style: TextStyle(fontSize: 30,fontWeight: FontWeight.w800,fontFamily: "Poppins-bold"),),
-              ]
+            const Center(
+              child: Text("Create New Account",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
             ),
             const SizedBox(height: 30,),
             Container(
@@ -56,9 +47,8 @@ class _SignInPageState extends State<SignInPage> {
               ),
               //color: Colors.white,
               child: TextFormField(
-                controller: username,
                 decoration: InputDecoration(
-                    hintText: "Username",
+                    hintText: "Email Full Name",
                     hintStyle: TextStyle(fontFamily: "Poppins", fontWeight: FontWeight.w700),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -84,7 +74,6 @@ class _SignInPageState extends State<SignInPage> {
               ),
               //color: Colors.white,
               child: TextFormField(
-                controller: email,
                 decoration: InputDecoration(
                     hintText: "Email Address",
                     hintStyle: TextStyle(fontFamily: "Poppins", fontWeight: FontWeight.w700),
@@ -107,7 +96,6 @@ class _SignInPageState extends State<SignInPage> {
               ),
               //color: Colors.white,
               child: TextFormField(
-                controller: password,
                 obscureText: true,
                 decoration: InputDecoration(
                     hintText: "Enter Password",
@@ -132,25 +120,13 @@ class _SignInPageState extends State<SignInPage> {
             const SizedBox(height: 40,),
             ElevatedButton(
                 onPressed: (){
-                  //  _submitForm();
-                  validateUser(username,email,password);
+                    _submitForm();
                 },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.lightBlue,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(14.0),
-                ),
+                child: Text("Sign In",style: TextStyle(color: Colors.white,fontSize: 16,fontFamily: 'Popppins-bold'),),
+              style: ButtonStyle(
+                //foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.purple),
               ),
-                child:Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 10),
-                  child: const Text(
-                  "SIGN UP",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontFamily: 'Popppins-bold'),
-                  ),
-                ),
             )
           ],
         ),
@@ -175,8 +151,8 @@ class _SignInPageState extends State<SignInPage> {
               context: context,
               builder: (context){
                 return AlertDialog(
-                  title: const Text("INFORMATION",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                  content: const Text(
+                  title: Text("INFORMATION",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                  content: Text(
                     "Successfully entered , now you can go to login page using this button :)",
                     style: TextStyle(fontSize: 16,fontWeight: FontWeight.normal),
                   ),
@@ -184,16 +160,13 @@ class _SignInPageState extends State<SignInPage> {
                   actions: [
                     ElevatedButton(
                       onPressed: (){
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const LoginPage()),
-                        );
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfilePage()));
                       },
+                      child: Text("OK",style: TextStyle(color: Colors.white,fontSize: 16),),
                       style: ButtonStyle(
                         foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
                         backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
                       ),
-                      child: Text("OK",style: TextStyle(color: Colors.white,fontSize: 16),),
                     )
                   ],
                 );
@@ -204,6 +177,4 @@ class _SignInPageState extends State<SignInPage> {
 
       }
   }
-
-
 }
