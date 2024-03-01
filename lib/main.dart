@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jobportal/component/view/application_tracker_user.dart';
 import 'package:jobportal/component/view/create_job.dart';
+import 'package:jobportal/component/view/entry.dart';
 import 'package:jobportal/component/view/job_list_employee_view.dart';
 import 'package:jobportal/component/view/loginUser.dart';
 import 'package:jobportal/component/view/profile_employer_view.dart';
@@ -14,8 +15,8 @@ void main() {
   Widget myApp = MaterialApp(
     initialRoute: "/entry",
     routes: {
-      "/login" : (context) => const LoginPage(),
-      "/signIn" : (context) => const SignInPage(),
+      "/login": (context) => const LoginPage(),
+      "/signIn": (context) => const SignInPage(),
       "/search": (context) => const SearchPage(),
       "/profile": (context) => const ProfilePage(),
       "/profileEmployee": (context) => const ProfileEmployeePage(),

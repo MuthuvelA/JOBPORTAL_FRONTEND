@@ -53,90 +53,115 @@ class _ProfilePageState extends State<ProfilePage> {
             children: [
               Center(child: profilePage()),
               SizedBox(height: 30),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Name",
-                  style: TextStyle(fontSize: 17, fontFamily: "Poppins-bold"),
-                ),
-              ),
               Container(
-                width: 400,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 child: TextField(
                   controller: nameController,
+                  decoration: InputDecoration(
+                    hintText: "Enter Name",
+                    hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(
+                            color: Colors.blue, width: 2
+                        )
+                    ),
+                  ),
                 ),
               ),
               SizedBox(height: 20),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Email Id",
-                  style: TextStyle(fontSize: 17, fontFamily: "Poppins-bold"),
-                ),
-              ),
               Container(
                 width: 400,
                 child: TextField(
+                  decoration: InputDecoration(
+                    hintText: "Enter Email",
+                    hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(
+                            color: Colors.blue, width: 2
+                        )
+                    ),
+                  ),
                   controller: emailController,
                 ),
               ),
               SizedBox(height: 20),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Mobile",
-                  style: TextStyle(fontSize: 17, fontFamily: "Poppins-bold"),
-                ),
-              ),
               Container(
-                width: 400,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10)
+                ),
                 child: TextField(
+                  decoration: InputDecoration(
+                      hintText: "Enter mobile",
+                    hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(
+                            color: Colors.blue, width: 2
+                        )
+                    ),
+                  ),
                   controller: mobileController,
                 ),
               ),
               SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Pincode",
-                    style: TextStyle(fontSize: 17, fontFamily: "Poppins-bold"),
-                  ),
-                  Text(
-                    "State",
-                    style: TextStyle(fontSize: 17, fontFamily: "Poppins-bold"),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    width: 100,
-                    child: TextField(
-                      controller: pincodeController,
+              Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10)
+                ),
+                child: TextField(
+                  decoration: InputDecoration(
+                      hintText: "Enter PINCODE",
+                    hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(
+                            color: Colors.blue, width: 2
+                        )
                     ),
                   ),
-                  Container(
-                    width: 100,
-                    child: TextField(
-                      controller: stateController,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 20),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Currently pursuing",
-                  style: TextStyle(fontSize: 17, fontFamily: "Poppins-bold"),
+                  controller: mobileController,
                 ),
               ),
+              SizedBox(height: 20,),
               Container(
-                width: 400,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10)
+                ),
                 child: TextField(
-                  controller: currentWorkController,
+                  decoration: InputDecoration(
+                      hintText: "Enter STATE",
+                    hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(
+                            color: Colors.blue, width: 2
+                        )
+                    ),
+                  ),
+                  controller: mobileController,
+                ),
+              ),
+              SizedBox(height: 20),
+              Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10)
+                ),
+                child: TextField(
+                  decoration: InputDecoration(
+                      hintText: "Currency pursuing",
+                    hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(
+                            color: Colors.blue, width: 2
+                        )
+                    ),
+                  ),
+                  controller: mobileController,
                 ),
               ),
               SizedBox(height: 20),
