@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
 
+import "loginUser.dart";
+
 class EntryPage extends StatefulWidget {
   const EntryPage({super.key});
 
@@ -31,7 +33,10 @@ class _EntryPageState extends State<EntryPage> {
           left: 30,
           child: MaterialButton(
             onPressed: (){
-
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LoginPage()),
+              );
             },
             child: Image.network(
                 'https://th.bing.com/th/id/OIP.e1KNYwnuhNwNj7_-98yTRwHaF7?rs=1&pid=ImgDetMain',
@@ -48,7 +53,10 @@ class _EntryPageState extends State<EntryPage> {
           left: 260,
           child: MaterialButton(
             onPressed: (){
-
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LoginPage()),
+              );
             },
             child: Image.network(
               'https://th.bing.com/th/id/OIP.GBjqNOdFKYK0He2NZcozeAHaFG?rs=1&pid=ImgDetMain',

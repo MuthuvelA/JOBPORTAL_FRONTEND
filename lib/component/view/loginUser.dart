@@ -1,6 +1,9 @@
   import 'package:flutter/material.dart';
-  import 'package:jobportal/component/view/sign-up_view.dart';
+import 'package:jobportal/component/view/profile_view.dart';
+  import 'package:jobportal/component/view/signupUser.dart';
+
   import 'package:http/http.dart' as http;
+
 
   import '../view_model/loginmodel.dart';
   class LoginPage extends StatefulWidget {
@@ -37,7 +40,7 @@
     return Form(
       //key: _formkey,
       child: Padding(
-        padding: const EdgeInsets.only(left: 50, right: 50),
+        padding: const EdgeInsets.only(left: 30, right: 30),
         child: Column(
           children: [
             const SizedBox(height: 30),
@@ -128,9 +131,14 @@
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {
-                validateLogin(username,password);
-
+              onPressed: () async {
+                bool isValid = await validateLogin(username, password);
+                if(isValid){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const ProfilePage()),
+                    );
+                  }
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.lightBlue,
@@ -154,5 +162,8 @@
           ],
         ),
       ),
+
     );
+
   }
+

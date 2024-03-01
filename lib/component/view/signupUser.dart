@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import '../view_model/signupmodel.dart';
-import 'login_view.dart';
+import 'loginUser.dart';
 import 'package:jobportal/component/view/profile_view.dart';
 
 class SignInPage extends StatefulWidget {
