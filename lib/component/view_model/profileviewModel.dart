@@ -6,19 +6,17 @@ class ProfileViewModel {
     required String name,
     required String email,
     required String mobile,
-    required String pincode,
-    required String state,
+    required String address,
     required String currentWork,
-    required String? selectedSkill,
+    required String selectedSkill,
   }) async {
     var reqBody = {
       "name": name,
       "email": email,
       "mobile": mobile,
-      "pincode": pincode,
-      "state": state,
+      "address": address,
       "currentWork": currentWork,
-      "selectedSkill": selectedSkill ?? '',
+      "selectedSkill": selectedSkill
     };
 
     var response = await http.post(

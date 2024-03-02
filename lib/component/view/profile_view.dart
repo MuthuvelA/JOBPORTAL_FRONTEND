@@ -13,26 +13,10 @@ class _ProfilePageState extends State<ProfilePage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController mobileController = TextEditingController();
-  TextEditingController pincodeController = TextEditingController();
-  TextEditingController stateController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
   TextEditingController currentWorkController = TextEditingController();
+  TextEditingController skillController = TextEditingController();
 
-  String? dropDownValue;
-  final List<String> _skillSet = [
-    'C',
-    'C++',
-    'Python',
-    'Java',
-    'JavaScript',
-    'Flutter',
-    'Dart',
-    'Swift',
-    'Kotlin',
-    'Ruby',
-    'PHP',
-  ];
-
-  // Initialize ProfileViewModel
   final ProfileViewModel _profileViewModel = ProfileViewModel();
 
   @override
@@ -75,6 +59,7 @@ class _ProfilePageState extends State<ProfilePage> {
               Container(
                 width: 400,
                 child: TextField(
+                  controller: emailController,
                   decoration: InputDecoration(
                     hintText: "Enter Email",
                     hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
@@ -85,7 +70,6 @@ class _ProfilePageState extends State<ProfilePage> {
                         )
                     ),
                   ),
-                  controller: emailController,
                 ),
               ),
               SizedBox(height: 20),
@@ -94,6 +78,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     borderRadius: BorderRadius.circular(10)
                 ),
                 child: TextField(
+                  controller: mobileController,
                   decoration: InputDecoration(
                       hintText: "Enter mobile",
                     hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
@@ -104,7 +89,6 @@ class _ProfilePageState extends State<ProfilePage> {
                         )
                     ),
                   ),
-                  controller: mobileController,
                 ),
               ),
               SizedBox(height: 20,),
@@ -113,6 +97,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     borderRadius: BorderRadius.circular(10)
                 ),
                 child: TextField(
+                  controller: addressController,
                   decoration: InputDecoration(
                       hintText: "Enter Address",
                     hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
@@ -124,7 +109,6 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                   maxLines: 3,
-                  controller: mobileController,
                 ),
               ),
               SizedBox(height: 20),
@@ -133,6 +117,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     borderRadius: BorderRadius.circular(10)
                 ),
                 child: TextField(
+                  controller: currentWorkController,
                   decoration: InputDecoration(
                       hintText: "Currency pursuing",
                     hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
@@ -143,7 +128,6 @@ class _ProfilePageState extends State<ProfilePage> {
                         )
                     ),
                   ),
-                  controller: mobileController,
                 ),
               ),
               SizedBox(height: 20),
@@ -152,6 +136,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     borderRadius: BorderRadius.circular(10)
                 ),
                 child: TextField(
+                  controller: skillController,
                   decoration: InputDecoration(
                     hintText: "Add your skills",
                     hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
@@ -163,13 +148,16 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                   maxLines: 3,
-                  //controller: mobileController,
                 ),
               ),
               SizedBox(height: 30),
               ElevatedButton(
                 onPressed: () {
-                  _saveProfile(); // Call function to save profile
+                  _saveProfile();
+                  Navigator.push(
+                    context,
+                      MaterialPageRoute(builder: (context) => const SearchPage()),
+                  );
                 },
                 child: Text("Save", style: TextStyle(color: Colors.white, fontSize: 16.0)),
                 style: ElevatedButton.styleFrom(
@@ -191,10 +179,9 @@ class _ProfilePageState extends State<ProfilePage> {
       name: nameController.text,
       email: emailController.text,
       mobile: mobileController.text,
-      pincode: pincodeController.text,
-      state: stateController.text,
+      address:addressController.text,
       currentWork: currentWorkController.text,
-      selectedSkill: dropDownValue,
+      selectedSkill: skillController.text,
     );
   }
 

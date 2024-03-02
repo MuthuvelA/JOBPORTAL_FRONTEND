@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 
 import "loginUser.dart";
-
+import "loginEmployee.dart";
 class EntryPage extends StatefulWidget {
   const EntryPage({super.key});
 
@@ -59,7 +59,7 @@ class _EntryPageState extends State<EntryPage> {
             onPressed: (){
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const LoginPage()),
+                MaterialPageRoute(builder: (context) => const LoginEmployeePage()),
               );
             },
             child: Container(
