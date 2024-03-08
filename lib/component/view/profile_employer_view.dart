@@ -27,7 +27,7 @@ class _ProfileEmployeePageState extends State<ProfileEmployeePage> {
           "PROFILE",
           style: TextStyle(fontFamily: "Poppins-bold", fontSize: 20),
         ),
-        backgroundColor: Colors.pink.shade500,
+        backgroundColor: Colors.blue,
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -79,7 +79,7 @@ class _ProfileEmployeePageState extends State<ProfileEmployeePage> {
             },
             child: Text("Save", style: TextStyle(color: Colors.white, fontSize: 16.0)),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.pink.shade500,
+              backgroundColor: Colors.blue,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16.0),
               ),

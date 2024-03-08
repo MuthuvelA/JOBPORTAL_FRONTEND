@@ -1,5 +1,5 @@
   import 'package:flutter/material.dart';
-  import 'package:jobportal/component/view/sign-up_view.dart';
+  import 'package:jobportal/component/view/signupUser.dart';
   import 'package:http/http.dart' as http;
 
   import '../view_model/loginmodel.dart';

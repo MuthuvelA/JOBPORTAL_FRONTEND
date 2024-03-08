@@ -1,6 +1,7 @@
   import 'package:flutter/material.dart';
 import 'package:jobportal/component/view/profile_view.dart';
   import 'package:jobportal/component/view/signupUser.dart';
+  import 'package:jobportal/component/view_model/loginmodel.dart';
 
   import 'package:http/http.dart' as http;
 
