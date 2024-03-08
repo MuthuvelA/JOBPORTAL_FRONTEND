@@ -1,5 +1,6 @@
   import 'package:flutter/material.dart';
 import 'package:jobportal/component/view/profile_view.dart';
+import 'package:jobportal/component/view/search_view.dart';
   import 'package:jobportal/component/view/signupUser.dart';
   import 'package:jobportal/component/view_model/loginmodel.dart';
 
@@ -137,7 +138,7 @@ import 'package:jobportal/component/view/profile_view.dart';
                 if(isValid){
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const ProfilePage()),
+                      MaterialPageRoute(builder: (context) => const SearchPage()),
                     );
                   }
               },
