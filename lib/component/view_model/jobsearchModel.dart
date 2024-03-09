@@ -11,22 +11,26 @@ class JobSearchModel {
         headers: {"Content-Type": "application/json"},
         body: jsonEncode({"query": query}),
       );
-      print(response.body);
+      //print(response.body);
 
       if (response.statusCode == 200) {
-        // Parse the response JSON directly and create JobSearchResult objects
-        var data = jsonDecode(response.body);
-        print("ASDASDSAD\n");
-        print(data);
+        var jsonData = jsonDecode(response.body);
+        var dataList = jsonData['data'] as List;
 
-        if (data is List && data.length >= 2) {
-          // If there are at least two items in the response, create JobSearchResult objects for the first two items
-          searchResults.add(JobSearchResult.fromJson(data[0]));
-          searchResults.add(JobSearchResult.fromJson(data[1]));
-        } else if (data is List && data.length == 1) {
-          // If there is only one item in the response, create a single JobSearchResult object
-          searchResults.add(JobSearchResult.fromJson(data[0]));
-        }
+
+        dataList.forEach((jobData) {
+          var companyName = jobData['companyName'];
+          var companyLocation = jobData['companyLocation'];
+          var jobTitle = jobData['jobTitle'];
+
+
+          var job = JobSearchResult(
+            companyName: companyName,
+            companyLocation: companyLocation,
+            jobTitle: jobTitle,
+          );
+          searchResults.add(job);
+        });
       } else {
         print('Failed to fetch search results. Status code: ${response.statusCode}');
       }
@@ -34,21 +38,22 @@ class JobSearchModel {
       print('Error fetching search results: $e');
     }
 
+    //print(searchResults);
     return searchResults;
   }
 }
 
 class JobSearchResult {
   final String companyName;
-  final String companylocation;
+  final String companyLocation;
   final String jobTitle;
 
-  JobSearchResult({required this.companyName, required this.companylocation, required this.jobTitle});
+  JobSearchResult({required this.companyName, required this.companyLocation, required this.jobTitle});
 
   factory JobSearchResult.fromJson(dynamic json) {
     return JobSearchResult(
       companyName: json['companyName'] ?? '',
-      companylocation: json['companylocation'] ?? '',
+      companyLocation: json['companyLocation'] ?? '',
       jobTitle: json['jobTitle'] ?? '',
     );
   }

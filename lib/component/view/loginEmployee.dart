@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jobportal/component/view/create_job.dart';
 import 'package:jobportal/component/view/profile_employer_view.dart';
 import 'package:jobportal/component/view/signupUser.dart';
 
@@ -136,7 +137,7 @@ Widget formFieldForLogin(BuildContext context) {
               if(isValid){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const ProfileEmployeePage()),
+                  MaterialPageRoute(builder: (context) => const CreateJobPage()),
                 );
               }
             },

@@ -99,7 +99,7 @@ class _SearchPageState extends State<SearchPage> {
                           ),
                           const SizedBox(height: 10),
                           Text(
-                            'Company Location: ${post.companylocation}',
+                            'Company Location: ${post.companyLocation}',
                             style: TextStyle(
                               fontSize: 15,
                               fontFamily: "Poppins-bold",

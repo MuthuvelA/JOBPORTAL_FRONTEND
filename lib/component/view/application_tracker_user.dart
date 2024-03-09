@@ -15,6 +15,12 @@ class _ApplicationTrackerUserState extends State<ApplicationTrackerUser> {
         title: const Text("Application Tracker",style: TextStyle(fontSize: 20,fontFamily: "Poppins-bold"),),
         centerTitle: true,
         backgroundColor: Colors.pink,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
       ),
       body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
