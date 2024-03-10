@@ -22,12 +22,14 @@ class JobSearchModel {
           var companyName = jobData['companyName'];
           var companyLocation = jobData['companyLocation'];
           var jobTitle = jobData['jobTitle'];
+          var jobApplicationLink = jobData['jobApplicationLink'];
 
 
           var job = JobSearchResult(
             companyName: companyName,
             companyLocation: companyLocation,
             jobTitle: jobTitle,
+            jobApplicationLink: jobApplicationLink,
           );
           searchResults.add(job);
         });
@@ -45,14 +47,16 @@ class JobSearchResult {
   final String companyName;
   final String companyLocation;
   final String jobTitle;
+  final String jobApplicationLink;
 
-  JobSearchResult({required this.companyName, required this.companyLocation, required this.jobTitle});
+  JobSearchResult({required this.companyName, required this.companyLocation, required this.jobTitle, required this.jobApplicationLink});
 
   factory JobSearchResult.fromJson(dynamic json) {
     return JobSearchResult(
       companyName: json['companyName'] ?? '',
       companyLocation: json['companyLocation'] ?? '',
       jobTitle: json['jobTitle'] ?? '',
+      jobApplicationLink: json['jobApplicationLink'] ?? '',
     );
   }
 }

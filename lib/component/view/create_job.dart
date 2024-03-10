@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jobportal/component/view/profile_employer_view.dart';
 import 'package:jobportal/component/view_model/JobDetailModel.dart';
 
 class CreateJobPage extends StatefulWidget {
@@ -59,7 +60,29 @@ class _CreateJobPageState extends State<CreateJobPage> {
         ),
         centerTitle: true,
         backgroundColor: Colors.blue,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.edit),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ProfileEmployeePage(),
+                ),
+              );
+            },
+          ),
+        ],
       ),
+
+
+
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(

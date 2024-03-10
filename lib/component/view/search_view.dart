@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:jobportal/component/view_model/jobsearchModel.dart';
+import 'package:jobportal/component/view/profile_view.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+
+
+
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
@@ -41,6 +47,7 @@ class _SearchPageState extends State<SearchPage> {
           .toList();
     });
   }
+  // Function to open the application link
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +64,19 @@ class _SearchPageState extends State<SearchPage> {
             Navigator.of(context).pop();
           },
         ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.edit),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ProfilePage(), // Navigate to profile edit page
+                ),
+              );
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -91,7 +111,7 @@ class _SearchPageState extends State<SearchPage> {
                 itemBuilder: (context, index) {
                   final post = filteredPosts[index];
                   return Container(
-                    height: 155,
+                    height: 165,
                     width: 400,
                     child: Card(
                       child: Padding(
@@ -124,6 +144,31 @@ class _SearchPageState extends State<SearchPage> {
                                 color: Colors.grey,
                               ),
                             ),
+                            GestureDetector(
+                              onTap: () async {
+                                String url = '${post.jobApplicationLink}';
+                                String encodedUrl = Uri.encodeFull(url);
+
+                                try {
+
+                                    await launch(encodedUrl);
+
+                                } catch (e) {
+                                  print('Error launching URL: $e');
+                                  // Handle the error as needed, such as showing a dialog or snackbar
+                                }
+                              },
+                              child: Text(
+                                'Apply for Job',
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontFamily: "Poppins-bold",
+                                  color: Colors.blue,
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ),
+                            )
+
                           ],
                         ),
                       ),
