@@ -37,8 +37,6 @@ class JobSearchModel {
     } catch (e) {
       print('Error fetching search results: $e');
     }
-
-    //print(searchResults);
     return searchResults;
   }
 }
