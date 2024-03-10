@@ -1,13 +1,11 @@
-  import 'package:flutter/material.dart';
-import 'package:jobportal/component/view/profile_view.dart';
+import 'package:flutter/material.dart';
 import 'package:jobportal/component/view/search_view.dart';
-  import 'package:jobportal/component/view/signupUser.dart';
-  import 'package:jobportal/component/view_model/loginmodel.dart';
+import 'package:jobportal/component/view/signupUser.dart';
+ import 'package:jobportal/component/view_model/loginmodel.dart';
 
   import 'package:http/http.dart' as http;
 
 
-  import '../view_model/loginmodel.dart';
   class LoginPage extends StatefulWidget {
     const LoginPage({Key? key}) : super(key: key);
 
@@ -16,8 +14,6 @@ import 'package:jobportal/component/view/search_view.dart';
   }
 
   class _LoginPageState extends State<LoginPage> {
-    GlobalKey<FormState> _formkey = GlobalKey<FormState>();
-
     @override
     Widget build(BuildContext context) {
       return Scaffold(
@@ -40,7 +36,6 @@ import 'package:jobportal/component/view/search_view.dart';
     TextEditingController username=TextEditingController();
     TextEditingController password=TextEditingController();
     return Form(
-      //key: _formkey,
       child: Padding(
         padding: const EdgeInsets.only(left: 30, right: 30),
         child: Column(
@@ -91,25 +86,10 @@ import 'package:jobportal/component/view/search_view.dart';
                 decoration: InputDecoration(
                     hintText: "Password",
                     hintStyle: TextStyle(fontFamily: "Poppins", fontWeight: FontWeight.w700),
-                    suffixIcon: const Icon(Icons.fingerprint)),
+                    suffixIcon: const Icon(Icons.security)),
               ),
             ),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'Forgot Password?',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w100,
-                      fontFamily: 'Poppins-bold',
-                    ),
-                  ),
-                ),
-              ],
-            ),
+
             const SizedBox(height: 1),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -141,6 +121,23 @@ import 'package:jobportal/component/view/search_view.dart';
                       MaterialPageRoute(builder: (context) => const SearchPage()),
                     );
                   }
+                else{
+                  showDialog(
+                    context: context,
+                    builder: (_) => AlertDialog(
+                      title: Text('Incorrect Password'),
+                      content: Text('!!!Enter valid credential!!!'),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Text('OK'),
+                        ),
+                      ],
+                    ),
+                  );
+                }
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.lightBlue,
@@ -149,7 +146,7 @@ import 'package:jobportal/component/view/search_view.dart';
                 ),
               ),
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 10), // Adjust horizontal padding here
+                padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 10),
                 child: const Text(
                   "LOG IN",
                   style: TextStyle(

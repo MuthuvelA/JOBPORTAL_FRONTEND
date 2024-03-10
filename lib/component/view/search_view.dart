@@ -3,10 +3,6 @@ import 'package:jobportal/component/view_model/jobsearchModel.dart';
 import 'package:jobportal/component/view/profile_view.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
-
-
-
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
 
@@ -148,7 +144,6 @@ class _SearchPageState extends State<SearchPage> {
                               onTap: () async {
                                 String url = '${post.jobApplicationLink}';
                                 String encodedUrl = Uri.encodeFull(url);
-
                                 try {
 
                                     await launch(encodedUrl);

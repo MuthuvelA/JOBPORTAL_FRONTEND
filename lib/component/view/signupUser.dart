@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:jobportal/component/view/loginEmployee.dart';
 
 import '../view_model/signupmodel.dart';
 import 'login_view.dart';
@@ -32,7 +33,7 @@ class _SignInPageState extends State<SignInPage> {
           ),
         ),
       ),
-      backgroundColor: Colors.pink.shade100,
+      backgroundColor: Colors.white,
       body: formFieldForSignIn(),
     );
   }
@@ -130,9 +131,32 @@ class _SignInPageState extends State<SignInPage> {
             ),
             const SizedBox(height: 40,),
             ElevatedButton(
-                onPressed: (){
+                onPressed: () async {
                   //  _submitForm();
-                  validateUser(username,email,password);
+                  if(await validateUser(username,email,password)) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginEmployeePage()),
+                    );
+                  }
+                  else{
+                    showDialog(
+                      context: context,
+                      builder: (_) => AlertDialog(
+                        title: Text('Alert'),
+                        content: Text('Enter valid credential , email is already taken'),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Text('OK'),
+                          ),
+                        ],
+                      ),
+                    );
+                  }
                 },
                 child: Text("Sign In",style: TextStyle(color: Colors.white,fontSize: 16,fontFamily: 'Popppins-bold'),),
               style: ButtonStyle(

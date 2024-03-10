@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-void validateUser(TextEditingController username,TextEditingController email,TextEditingController password) async{
+Future<bool> validateUser(TextEditingController username,TextEditingController email,TextEditingController password) async{
   var reqBody = {
     "username":username.text,
     "email":email.text,
@@ -20,7 +20,13 @@ void validateUser(TextEditingController username,TextEditingController email,Tex
 
   if(decRes['status']){
     print(decRes['message']);
+    if(decRes['message']=="Email id is already taken"){
+      return false;
+    }else{
+      return true;
+    }
   }else{
     print(decRes['message']);
+    return false;
   }
 }

@@ -175,6 +175,21 @@ class _CreateJobPageState extends State<CreateJobPage> {
           ElevatedButton(
             onPressed: () {
               postJob();
+              showDialog(
+                context: context,
+                builder: (_) => AlertDialog(
+                  title: Text('SUCCESSFULL'),
+                  content: Text('JOB POSTED SUCCESSFULLY'),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Text('OK'),
+                    ),
+                  ],
+                ),
+              );
             },
             child: Text(
               'Post Job',

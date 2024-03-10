@@ -90,24 +90,8 @@ Widget formFieldForLogin(BuildContext context) {
               decoration: InputDecoration(
                   hintText: "Password",
                   hintStyle: TextStyle(fontFamily: "Poppins", fontWeight: FontWeight.w700),
-                  suffixIcon: const Icon(Icons.fingerprint)),
+                  suffixIcon: const Icon(Icons.security_outlined)),
             ),
-          ),
-          const SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              TextButton(
-                onPressed: () {},
-                child: const Text(
-                  'Forgot Password?',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w100,
-                    fontFamily: 'Poppins-bold',
-                  ),
-                ),
-              ),
-            ],
           ),
           const SizedBox(height: 1),
           Row(
@@ -138,6 +122,23 @@ Widget formFieldForLogin(BuildContext context) {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const CreateJobPage()),
+                );
+              }
+              else{
+                showDialog(
+                  context: context,
+                  builder: (_) => AlertDialog(
+                    title: Text('Incorrect Password'),
+                    content: Text('!!!Enter valid credential!!!'),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text('OK'),
+                      ),
+                    ],
+                  ),
                 );
               }
             },
