@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jobportal/component/view_model/jobsearchModel.dart';
 import 'package:jobportal/component/view/profile_view.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'constantString.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
@@ -20,19 +21,18 @@ class _SearchPageState extends State<SearchPage> {
     fetchRecentPosts();
   }
 
-  // Function to fetch recent posts
   void fetchRecentPosts() {
     JobSearchModel().searchJobs('recent').then((posts) {
       setState(() {
         recentPosts = posts;
-        filteredPosts = recentPosts; // Initialize filtered posts with recent posts
+        filteredPosts = recentPosts;
       });
     }).catchError((error) {
       print("Error fetching recent posts: $error");
     });
   }
 
-  // Function to handle search
+
   void search(String query) {
     setState(() {
       filteredPosts = recentPosts
@@ -43,7 +43,7 @@ class _SearchPageState extends State<SearchPage> {
           .toList();
     });
   }
-  // Function to open the application link
+
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +67,7 @@ class _SearchPageState extends State<SearchPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ProfilePage(), // Navigate to profile edit page
+                  builder: (context) => ProfilePage(),
                 ),
               );
             },
@@ -95,81 +95,88 @@ class _SearchPageState extends State<SearchPage> {
                   ),
                 ),
               ),
-              const SizedBox(height: 30),
-              Text(
-                "Recent Post",
-                style: TextStyle(fontSize: 25, fontFamily: "Poppins-bold"),
+              Padding(
+                padding: const EdgeInsets.only(top: 30),
+                child: Text(
+                  "Recent Post",
+                  style: TextStyle(fontSize: 25, fontFamily: "Poppins-bold"),
+                ),
               ),
-              const SizedBox(height: 10),
-              ListView.builder(
-                shrinkWrap: true,
-                itemCount: filteredPosts.length,
-                itemBuilder: (context, index) {
-                  final post = filteredPosts[index];
-                  return Container(
-                    height: 165,
-                    width: 400,
-                    child: Card(
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Company Name: ${post.companyName}',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontFamily: "Poppins-bold",
-                                color: Colors.red.shade500,
-                              ),
-                            ),
-                            const SizedBox(height: 10),
-                            Text(
-                              'jobTitle: ${post.jobTitle}',
-                              style: TextStyle(
-                                fontSize: 17,
-                                fontFamily: "Poppins-bold",
-                              ),
-                            ),
-                            const SizedBox(height: 10),
-                            Text(
-                              'Company Location: ${post.companyLocation}',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontFamily: "Poppins-bold",
-                                color: Colors.grey,
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: () async {
-                                String url = '${post.jobApplicationLink}';
-                                String encodedUrl = Uri.encodeFull(url);
-                                try {
-
-                                    await launch(encodedUrl);
-
-                                } catch (e) {
-                                  print('Error launching URL: $e');
-                                  // Handle the error as needed, such as showing a dialog or snackbar
-                                }
-                              },
-                              child: Text(
-                                'Apply for Job',
+              Padding(
+                padding: const EdgeInsets.only(top: 10),
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: filteredPosts.length,
+                  itemBuilder: (context, index) {
+                    final post = filteredPosts[index];
+                    return Container(
+                      height: 165,
+                      width: 400,
+                      child: Card(
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Company Name: ${post.companyName}',
                                 style: TextStyle(
-                                  fontSize: 15,
+                                  fontSize: 20,
                                   fontFamily: "Poppins-bold",
-                                  color: Colors.blue,
-                                  decoration: TextDecoration.underline,
+                                  color: Colors.red.shade500,
                                 ),
                               ),
-                            )
-
-                          ],
+                              Padding(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: Text(
+                                  'jobTitle: ${post.jobTitle}',
+                                  style: TextStyle(
+                                    fontSize: 17,
+                                    fontFamily: "Poppins-bold",
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: Text(
+                                  'Company Location: ${post.companyLocation}',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontFamily: "Poppins-bold",
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: () async {
+                                  String url = '${post.jobApplicationLink}';
+                                  String encodedUrl = Uri.encodeFull(url);
+                                  try {
+                                    await launch(encodedUrl);
+                                  } catch (e) {
+                                    print('Error launching URL: $e');
+                                  }
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.only(top: 10),
+                                  child: Text(
+                                    'Apply for Job',
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontFamily: "Poppins-bold",
+                                      color: Colors.blue,
+                                      decoration: TextDecoration.underline,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
             ],
           ),

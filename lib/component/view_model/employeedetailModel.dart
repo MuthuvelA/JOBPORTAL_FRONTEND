@@ -30,9 +30,9 @@ class EmployeeDetailModel {
     var decRes = jsonDecode(response.body);
 
     if (decRes['status']) {
-      print(decRes['message']); // Success message
+      print(decRes['message']);
     } else {
-      print(decRes['message']); // Error message
+      print(decRes['message']);
     }
   }
 }

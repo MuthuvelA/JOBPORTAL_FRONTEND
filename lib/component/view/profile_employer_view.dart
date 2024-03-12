@@ -42,46 +42,60 @@ class _ProfileEmployeePageState extends State<ProfileEmployeePage> {
       child: Column(
         children: [
           Center(child: profilePage()),
-          SizedBox(height: 30),
-          textField("Company Name", companyNameController),
-          SizedBox(height: 20),
-          textField("Employee Name", employeeNameController),
-          SizedBox(height: 20),
-          textField("Email ID", emailIdController),
-          SizedBox(height: 20),
-          textField("Mobile", mobileController),
-          SizedBox(height: 20),
-          Container(
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-            child: TextField(
-              controller: companyAddressController,
-              decoration: InputDecoration(
-                hintText: "Company Address",
-                hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(color: Colors.blue, width: 2),
+          Padding(
+            padding: const EdgeInsets.only(top: 30),
+            child: textField("Company Name", companyNameController),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: textField("Employee Name", employeeNameController),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: textField("Email ID", emailIdController),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: textField("Mobile", mobileController),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: Container(
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+              child: TextField(
+                controller: companyAddressController,
+                decoration: InputDecoration(
+                  hintText: "Company Address",
+                  hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(color: Colors.blue, width: 2),
+                  ),
                 ),
+                maxLines: 3,
               ),
-              maxLines: 3,
             ),
           ),
-          SizedBox(height: 20),
-          textField("Designation", designationController),
-          SizedBox(height: 30),
-          ElevatedButton(
-            onPressed: () {
-              saveEmployeeProfile();
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const CreateJobPage()),
-              );
-            },
-            child: Text("Save", style: TextStyle(color: Colors.white, fontSize: 16.0)),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.blue,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16.0),
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: textField("Designation", designationController),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 30),
+            child: ElevatedButton(
+              onPressed: () {
+                saveEmployeeProfile();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const CreateJobPage()),
+                );
+              },
+              child: Text("Save", style: TextStyle(color: Colors.white, fontSize: 16.0)),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16.0),
+                ),
               ),
             ),
           ),

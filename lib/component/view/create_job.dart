@@ -80,9 +80,6 @@ class _CreateJobPageState extends State<CreateJobPage> {
           ),
         ],
       ),
-
-
-
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
@@ -97,61 +94,84 @@ class _CreateJobPageState extends State<CreateJobPage> {
     return Form(
       child: Column(
         children: [
-          SizedBox(height: 30),
-          textFormFieldFor('Company Name', companyNameController),
-          SizedBox(height: 20),
-          textFormFieldFor('Company Website', companyWebsiteController),
-          SizedBox(height: 20),
-          textFormFieldFor('Job Title', jobTitleController),
-          SizedBox(height: 20),
-          dropdownFormFieldFor(
-            'Select Job Category',
-            dropDownValueForJob,
-            jobCategories,
-                (String? newValue) {
-              setState(() {
-                dropDownValueForJob = newValue;
-              });
-            },
+          Padding(
+            padding: const EdgeInsets.only(top: 30),
+            child: textFormFieldFor('Company Name', companyNameController),
           ),
-          SizedBox(height: 20),
-          dropdownFormFieldFor(
-            'Select Job Type',
-            dropDownValueForJobTime,
-            jobTime,
-                (String? newValue) {
-              setState(() {
-                dropDownValueForJobTime = newValue;
-              });
-            },
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: textFormFieldFor('Company Website', companyWebsiteController),
           ),
-          SizedBox(height: 20),
-          textFormFieldFor('Company Location', companyLocationController),
-          SizedBox(height: 20),
-          textFormFieldFor('Salary Range', salaryRangeController),
-          SizedBox(height: 20),
-          textFormFieldFor('Experience', experienceController),
-          SizedBox(height: 20),
-          textFormFieldFor('Qualification', qualificationController),
-          SizedBox(height: 20),
-          textFormFieldFor(
-            'Application Deadline',
-            applicationDeadlineController,
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: textFormFieldFor('Job Title', jobTitleController),
           ),
-          SizedBox(height: 20),
-          textFormFieldFor(
-            'Job Application Link',
-            jobApplicationLinkController,
-          ),
-          SizedBox(height: 20),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              'Job Description',
-              style: TextStyle(fontSize: 17, fontFamily: 'Poppins-bold'),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: dropdownFormFieldFor(
+              'Select Job Category',
+              dropDownValueForJob,
+              jobCategories,
+                  (String? newValue) {
+                setState(() {
+                  dropDownValueForJob = newValue;
+                });
+              },
             ),
           ),
-          SizedBox(height: 5),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: dropdownFormFieldFor(
+              'Select Job Type',
+              dropDownValueForJobTime,
+              jobTime,
+                  (String? newValue) {
+                setState(() {
+                  dropDownValueForJobTime = newValue;
+                });
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: textFormFieldFor('Company Location', companyLocationController),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: textFormFieldFor('Salary Range', salaryRangeController),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: textFormFieldFor('Experience', experienceController),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: textFormFieldFor('Qualification', qualificationController),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: textFormFieldFor(
+              'Application Deadline',
+              applicationDeadlineController,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: textFormFieldFor(
+              'Job Application Link',
+              jobApplicationLinkController,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20, bottom: 30),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Job Description',
+                style: TextStyle(fontSize: 17, fontFamily: 'Poppins-bold'),
+              ),
+            ),
+          ),
           Container(
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
             child: TextFormField(
@@ -171,34 +191,36 @@ class _CreateJobPageState extends State<CreateJobPage> {
               maxLines: 4,
             ),
           ),
-          SizedBox(height: 30),
-          ElevatedButton(
-            onPressed: () {
-              postJob();
-              showDialog(
-                context: context,
-                builder: (_) => AlertDialog(
-                  title: Text('SUCCESSFULL'),
-                  content: Text('JOB POSTED SUCCESSFULLY'),
-                  actions: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: Text('OK'),
-                    ),
-                  ],
+          Padding(
+            padding: const EdgeInsets.only(top: 30),
+            child: ElevatedButton(
+              onPressed: () {
+                postJob();
+                showDialog(
+                  context: context,
+                  builder: (_) => AlertDialog(
+                    title: Text('SUCCESSFULL'),
+                    content: Text('JOB POSTED SUCCESSFULLY'),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text('OK'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+              child: Text(
+                'Post Job',
+                style: TextStyle(color: Colors.white, fontSize: 16.0),
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16.0),
                 ),
-              );
-            },
-            child: Text(
-              'Post Job',
-              style: TextStyle(color: Colors.white, fontSize: 16.0),
-            ),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.blue,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16.0),
               ),
             ),
           ),
@@ -244,6 +266,7 @@ class _CreateJobPageState extends State<CreateJobPage> {
       }).toList(),
     );
   }
+
   void postJob() {
     // Call the saveJobPost method from JobDetailModel
     JobDetailModel().saveJobPost(

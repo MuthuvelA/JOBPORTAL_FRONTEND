@@ -32,122 +32,141 @@ class _ProfilePageState extends State<ProfilePage> {
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
-          padding: const EdgeInsets.only(left: 50, right: 50),
+          padding: const EdgeInsets.symmetric(horizontal: 50),
           child: Column(
             children: [
               Center(child: profilePage()),
               SizedBox(height: 30),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: TextField(
-                  controller: nameController,
-                  decoration: InputDecoration(
-                    hintText: "Enter Name",
-                    hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
-                    border: OutlineInputBorder(
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: TextField(
+                    controller: nameController,
+                    decoration: InputDecoration(
+                      hintText: "Enter Name",
+                      hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
+                      border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: const BorderSide(
-                            color: Colors.blue, width: 2
-                        )
+                          color: Colors.blue,
+                          width: 2,
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 20),
-              Container(
-                width: 400,
-                child: TextField(
-                  controller: emailController,
-                  decoration: InputDecoration(
-                    hintText: "Enter Email",
-                    hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
-                    border: OutlineInputBorder(
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: Container(
+                  width: 400,
+                  child: TextField(
+                    controller: emailController,
+                    decoration: InputDecoration(
+                      hintText: "Enter Email",
+                      hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
+                      border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: const BorderSide(
-                            color: Colors.blue, width: 2
-                        )
+                          color: Colors.blue,
+                          width: 2,
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 20),
-              Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10)
-                ),
-                child: TextField(
-                  controller: mobileController,
-                  decoration: InputDecoration(
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: TextField(
+                    controller: mobileController,
+                    decoration: InputDecoration(
                       hintText: "Enter mobile",
-                    hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
-                    border: OutlineInputBorder(
+                      hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
+                      border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: const BorderSide(
-                            color: Colors.blue, width: 2
-                        )
+                          color: Colors.blue,
+                          width: 2,
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 20,),
-              Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10)
-                ),
-                child: TextField(
-                  controller: addressController,
-                  decoration: InputDecoration(
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: TextField(
+                    controller: addressController,
+                    decoration: InputDecoration(
                       hintText: "Enter Address",
-                    hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
-                    border: OutlineInputBorder(
+                      hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
+                      border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: const BorderSide(
-                            color: Colors.blue, width: 2
-                        )
+                          color: Colors.blue,
+                          width: 2,
+                        ),
+                      ),
                     ),
+                    maxLines: 3,
                   ),
-                  maxLines: 3,
                 ),
               ),
-              SizedBox(height: 20),
-              Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10)
-                ),
-                child: TextField(
-                  controller: currentWorkController,
-                  decoration: InputDecoration(
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: TextField(
+                    controller: currentWorkController,
+                    decoration: InputDecoration(
                       hintText: "Currency pursuing",
-                    hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
-                    border: OutlineInputBorder(
+                      hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
+                      border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: const BorderSide(
-                            color: Colors.blue, width: 2
-                        )
+                          color: Colors.blue,
+                          width: 2,
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 20),
-              Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10)
-                ),
-                child: TextField(
-                  controller: skillController,
-                  decoration: InputDecoration(
-                    hintText: "Add your skills",
-                    hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
-                    border: OutlineInputBorder(
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: TextField(
+                    controller: skillController,
+                    decoration: InputDecoration(
+                      hintText: "Add your skills",
+                      hintStyle: TextStyle(fontFamily: "Poppins-bold", fontWeight: FontWeight.w700),
+                      border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: const BorderSide(
-                            color: Colors.blue, width: 2
-                        )
+                          color: Colors.blue,
+                          width: 2,
+                        ),
+                      ),
                     ),
+                    maxLines: 3,
                   ),
-                  maxLines: 3,
                 ),
               ),
               SizedBox(height: 30),
@@ -156,7 +175,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   _saveProfile();
                   Navigator.push(
                     context,
-                      MaterialPageRoute(builder: (context) => const SearchPage()),
+                    MaterialPageRoute(builder: (context) => const SearchPage()),
                   );
                 },
                 child: Text("Save", style: TextStyle(color: Colors.white, fontSize: 16.0)),
@@ -179,7 +198,7 @@ class _ProfilePageState extends State<ProfilePage> {
       name: nameController.text,
       email: emailController.text,
       mobile: mobileController.text,
-      address:addressController.text,
+      address: addressController.text,
       currentWork: currentWorkController.text,
       selectedSkill: skillController.text,
     );
