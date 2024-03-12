@@ -10,11 +10,14 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  http:
+  url_launcher: ^6.0.0
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.1
 
 flutter:
   fonts:
@@ -25,6 +28,10 @@ flutter:
       fonts:
         - asset: assets/fonts/Poppins-SemiBold.ttf
   uses-material-design: true
+
+  assets:
+    - assets/img/employee.jpg
+    - assets/img/jobSeeker.jpg
 
   # To add assets to your application, add an assets section, like this:
   # assets:
